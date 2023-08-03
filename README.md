@@ -5,10 +5,10 @@ Here, you will find links to some of my recent work and a brief description of w
 ## Projects
 
 1. [Flow Performance Analysis](./Flow%20Performance%20Investigation/FlowPerformance.md)
-    - A brief description of Project 1.
+    - Recently whislt working on a project i was given the task of investigating why the response times of a custom rest endpoint were so slow (30s+) as the process on the front end was user facing and therefore this was far too long to await a response. During the course of this investigation, the major causes of poor performance turned out to be the numerous flows within the org with some flows taking over 2s each. As part of presenting this work, I investigated the performance difference between a before insert apex trigger and a record triggered flow before save, some of this investigation can be seen in here.
 
 2. [Work History input for customer community](./Community%20Date%20range%20LWC/CommunityLWC.md)
-    - A brief description of Project 2.
+    - For a recruiting client recently I was asked to help improve the record capture within their customer community to ensure that when users work history could be captured more easily as previously this was carried out in a screen flow with a loop node and a screen for inputting the details of each job. This approach in flow didn't work in practice as candidates could not see the records they had already entered and the validations carried out to ensure a full work history was present didn't work correctly in numerous scenarios. To resolve this, a new LWC was created to capture the work history information and provide visual indicators if the user has left gaps or entered overlapping histories.
 
 
 ## About Me
