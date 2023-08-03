@@ -1,7 +1,14 @@
+# Brief overview
+While working with a client looking to integrate their ATS front end, I was asked to assist in debugging a slow performing Salesforce custom endpoint. During the course of the investigation, one of the major causes of poor performance turned out to be the numerous flows within the org with some flows taking over 2s each. The endpoint being investigated inserted numerous records accross 7 objects with over 50 unique flows being executed in a single transaction, with multiple flows triggering DML actions on other related objects therefore slowing performance further. 
+
+As part of presenting potential solutions from this analysis, I investigated the performance difference between a before insert apex trigger and a record triggered flow before save, some of this investigation can be seen in here.
+
+The below is an extract of some of the analysis performed, with the purpose of explaining the differences in performance of different approaches to a wide audience of team members with varying levels of Salesforce technical knowledge. 
+
+
+# Extract from analysis documentation
+
 ## Flow vs Apex
-The below is an extract of a recent analysis performed for a client with the purpose of explaining the differences in performance of different approaches to a wide audience of team members with varying levels of Salesforce technical knowledge. 
-
-
 
 ### Initial analysis
 
