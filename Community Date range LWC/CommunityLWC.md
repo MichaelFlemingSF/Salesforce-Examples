@@ -4,4 +4,4 @@ A short project I had recently was to assist a recruiting company with improving
 
 ![User interface showing the existing records within a work history input screen](images/User%20Interface%20view.png "User interface within flow")
 
-you can find the LWC for this component within the [workHistoryInput folder](workHistorInput/)
+you can find the LWC for this component within the [workHistoryInput folder](workHistoryInput/)
