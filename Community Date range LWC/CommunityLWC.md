@@ -12,6 +12,6 @@ Within this component, key requests were:
 - validation of data entered
 - the ability to edit previously entered histories
 - the ability to delete an entry
-- validation to ensure a full work history has been entered since a given date *this is provided as an input into the LWC from the screen flow*
-- visually highlighting overlapping records to prompt the user to correct data if entered incorrectly *this should not however block them from progressing as this could be a valid scenario*
+- validation to ensure a full work history has been entered since a given date (*this is provided as an input into the LWC from the screen flow*)
+- visually highlighting overlapping records to prompt the user to correct data if entered incorrectly (*this should not however block them from progressing as this could be a valid scenario*)
 - static warning message to display above the table when complex validation is breached
