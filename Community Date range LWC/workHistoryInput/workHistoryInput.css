@@ -1,0 +1,7 @@
+.cell-overlapping {
+    background-color: rgb(231, 173, 27)!important;
+}
+.rounded-corners{
+    border-radius: 2px;
+    margin-bottom: 5px;
+}

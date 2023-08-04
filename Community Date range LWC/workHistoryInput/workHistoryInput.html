@@ -1,0 +1,70 @@
+<template>
+    <lightning-card title="Employment History">
+        <c-flow-toast></c-flow-toast>
+        <template if:true={isInputMode}>
+            <div class="slds-m-around_medium">
+                <lightning-combobox name="type"
+                                    label="Type"
+                                    value={inputType}
+                                    options={typeOptions}
+                                    onchange={handleTypeChange}>
+                </lightning-combobox>
+                <template if:true={isEmploymentType}>
+                    <lightning-input type="text" label="Name of Employer" value={employer} onchange={handleEmployerChange}></lightning-input>
+                    <lightning-input type="text" label="Job Title" value={jobTitle} onchange={handleJobTitleChange}></lightning-input>
+                    <lightning-input type="text" label="Job Duties" value={jobDuties} onchange={handleJobDutiesChange}></lightning-input>
+                    <lightning-input type="text" label="Reason for Leaving" value={reasonForLeaving} onchange={handleReasonForLeavingChange} disabled={isCurrentRole}></lightning-input>
+                </template>
+                <template if:true={isUnemploymentType}>
+                    <lightning-input label="Description" value={description} onchange={handleDescriptionChange} required></lightning-input>
+                </template>
+                <lightning-input type="date" label="Start Date" value={startDate} onchange={handleStartDateChange}></lightning-input>
+                <lightning-input type="date" label="End Date" value={endDate} onchange={handleEndDateChange} disabled={isCurrentRole}></lightning-input>
+                <lightning-input type="checkbox" label="Is Current Role" checked={isCurrentRole} onchange={handleIsCurrentRoleChange}></lightning-input>
+                <template if:true={isEmploymentType}>
+                    <lightning-input label="Street Address of Employment" value={streetAddress} onchange={handleStreetAddressChange}></lightning-input>
+                    <lightning-input label="City of Employment" value={city} onchange={handleCityChange}></lightning-input>
+                    <lightning-input label="County of Employment" value={county} onchange={handleCountyChange}></lightning-input>
+                    <lightning-input label="Country of Employment" value={country} onchange={handleCountryChange}></lightning-input>
+                    <lightning-input label="Zip/Postal Code of Employment" value={zipCode} onchange={handleZipCodeChange}></lightning-input>
+                </template>
+                <lightning-button label="Save" onclick={handleSave} variant="brand" class="slds-m-top_small" disabled={disableAddDatePair}></lightning-button>
+                <lightning-button label="Cancel" onclick={handleCancel} class="slds-m-top_small"></lightning-button>
+            </div>
+        </template>
+        <template if:false={isInputMode}>
+            <div class="slds-m-around_medium">
+
+                <template if:true={hasDatePairs}>
+                    <template if:false={hasFullEmploymentHistory}>
+                        <div class="slds-notify slds-notify_alert slds-alert_warning rounded-corners" role="alert">
+                            <span class="slds-assistive-text">warning</span>
+                            <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="Warning" size="x-small"></lightning-icon>
+                            <h2>You have gaps in your work history, please check that you have entered your full work history since leaving school
+                            </h2>
+                        </div>
+                    </template>
+                    <lightning-datatable
+                        key={row.Id}
+                        data={datePairs}
+                        columns={columns}
+                        key-field="Id"
+                        hide-checkbox-column
+                        onrowaction={handleRowAction}
+                        class="slds-max-medium-table_stacked-horizontal"
+                    ></lightning-datatable>
+                </template>
+                <template if:false={hasDatePairs}>
+                    <p>You have not entered any work history yet.</p>
+                </template>
+                <div class="slds-grid slds-m-top_small" style="display: flex; justify-content: space-between;">
+                    <lightning-button label="Add New" onclick={toggleMode} variant="brand-outline" class="slds-m-right_small"></lightning-button>
+                    <lightning-button label="Save Employment History" onclick={saveEmploymentHistory} variant="brand" class="slds-m-left_small"></lightning-button>
+                </div>
+            </div>
+            <div class="slds-m-around_medium">
+                Once you have finished updating all of your employment history please save your changes and then proceed to the next screen.
+            </div>
+        </template>
+    </lightning-card>
+</template>
